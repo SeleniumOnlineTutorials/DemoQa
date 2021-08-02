@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		dryRun=true,
+		dryRun=false,
 		features={"src\\test\\resources\\Features\\DemoQADatatable.feature"},
 		glue={"StepDefinitions"}
 		)

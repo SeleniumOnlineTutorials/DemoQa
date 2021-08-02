@@ -1,18 +1,26 @@
 package StepDefinitions;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 
 import com.cucmber.Driver.DriverCreation;
 
 import Pages.DemoQaElementsPage;
+import Pages.DemoQaFormPage;
 import Pages.DemoQaHomePage;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class DemoQaSteps {
 	public WebDriver drivers=null;
 	public DriverCreation broswer=null;
 	public DemoQaHomePage hpage=null;
 	public DemoQaElementsPage epage=null;
+	public DemoQaFormPage fpage=null;
+	
 	@Given("User launches DemoQA application")
 	public void user_launches_DemoQA_application() {
 		broswer=new DriverCreation();
@@ -62,4 +70,57 @@ public class DemoQaSteps {
 		epage=new DemoQaElementsPage(drivers);
 		epage.clickOnSubmitButton();
 	}
+	@Given("user Click on Form menu")
+	public void user_Click_on_Form_menu() {
+		hpage=new DemoQaHomePage(drivers);
+		hpage.clickOnForms();
+	   
+	}
+	@Then("Verify User is on Form page")
+	public void verify_User_is_on_Form_page() {
+		fpage=new DemoQaFormPage(drivers);
+		
+	}
+	@When("User Click on Practice Form under Forms")
+	public void user_Click_on_Practice_Form_under_Forms() {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.clickOnPracticeForm();
+	}
+	@Then("Verify Form is be displayed")
+	public void verify_Form_is_be_displayed() throws Exception {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.verifyFormHeaderDisplayed();
+	}
+	@Given("User enter name")
+	public void user_enter_name(DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+		List<String> data=dataTable.asList();
+		fpage=new DemoQaFormPage(drivers);
+		fpage.enterName(data.get(0), data.get(1));
+		
+		
+	   
+	}
+	
+	@Given("User enter EmailId")
+	public void user_enter_EmailId(DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+	    List<String> li=dataTable.asList();
+	    fpage=new DemoQaFormPage(drivers);
+	    fpage.enterEmail(li.get(0));
+	    
+	}
+
 }
