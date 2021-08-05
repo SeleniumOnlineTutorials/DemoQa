@@ -81,6 +81,31 @@ public class DemoQaSteps {
 		fpage=new DemoQaFormPage(drivers);
 		
 	}
+	
+	@Given("User Select {string} radio button")
+	public void user_Select_radio_button(String gender) {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.selectGender(gender);
+	}
+	@Given("user Enter the mobile number {string}")
+	public void user_Enter_the_mobile_number(String mobNum) {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.enterMobileNumber(mobNum);
+	}
+
+	@Given("User enter the subjects {string}")
+	public void user_enter_the_subjects(String subject) {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.selectSubject(subject);
+	}
+
+	@Given("User Slect Hobbies {string}")
+	public void user_Slect_Hobbies(String hobby) {
+		fpage=new DemoQaFormPage(drivers);
+		fpage.selectHobbies(hobby);
+	}
+
+	
 	@When("User Click on Practice Form under Forms")
 	public void user_Click_on_Practice_Form_under_Forms() {
 		fpage=new DemoQaFormPage(drivers);
