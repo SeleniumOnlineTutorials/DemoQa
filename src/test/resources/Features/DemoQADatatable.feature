@@ -1,13 +1,17 @@
 Feature: DataTable concept
  Datatable concept - Data Driven Framework using cucumber BDD
-
-  Scenario Outline: DemoQA Form Automation using Datatable concept
-  
+ 
+ Background:
   Given User launches DemoQA application
   And user Click on Form menu
   Then Verify User is on Form page
   When User Click on Practice Form under Forms
   Then Verify Form is be displayed
+  
+ 
+
+  Scenario Outline: DemoQA Form Automation using Datatable concept
+  
   Given User enter name
   |Vyshnavi|Dakarapu|
   And User enter EmailId
@@ -21,6 +25,12 @@ Feature: DataTable concept
   | Gender | mobileNum   | Subjects  | Hobbies |
   | Male   | 43883284832 | Economics | Sports  |
   
+  
+  Scenario: DemoQa Practive Form uing DataTable with Map collection
+  
+  Given User enter name of the student
+  | firstname | lastname |
+  | Jhon      |  Smith   |
   
   
   

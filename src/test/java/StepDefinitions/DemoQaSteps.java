@@ -1,6 +1,8 @@
 package StepDefinitions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 
@@ -116,21 +118,26 @@ public class DemoQaSteps {
 		fpage=new DemoQaFormPage(drivers);
 		fpage.verifyFormHeaderDisplayed();
 	}
+	@Given("User enter name of the student")
+	public void user_enter_name_of_the_student(DataTable dataTable) {
+
+		//List<List<String>> li= dataTable.asLists();
+		fpage=new DemoQaFormPage(drivers);
+		String fname="",lname="";
+		//fpage.enterName(li.get(1).get(0), li.get(1).get(1));
+		
+		List<Map<String, String>> li=dataTable.asMaps();
+		fpage.enterName("selenium","tutorial");
+		
+		
+	}
+
 	@Given("User enter name")
 	public void user_enter_name(DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-	    //
-	    // For other transformations you can register a DataTableType.
-		List<String> data=dataTable.asList();
+	    List<String> data=dataTable.asList();
 		fpage=new DemoQaFormPage(drivers);
 		fpage.enterName(data.get(0), data.get(1));
 		
-		
-	   
 	}
 	
 	@Given("User enter EmailId")
