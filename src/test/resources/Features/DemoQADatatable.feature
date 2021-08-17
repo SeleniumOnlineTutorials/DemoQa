@@ -9,7 +9,7 @@ Feature: DataTable concept
   Then Verify Form is be displayed
   
  
-
+@smoke
   Scenario Outline: DemoQA Form Automation using Datatable concept
   
   Given User enter name
@@ -26,6 +26,7 @@ Feature: DataTable concept
   | Male   | 43883284832 | Economics | Sports  |
   
   
+  @release @regression
   Scenario: DemoQa Practive Form uing DataTable with Map collection
   
   Given User enter name of the student

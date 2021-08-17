@@ -9,7 +9,7 @@ public class DriverCreation {
 		
 		System.setProperty("webdriver.chrome.driver", "D:\\Selenium Jars\\Chrome\\chromedriver.exe");
 		driver=new ChromeDriver();
-		driver.get("https://demoqa.com/");
+		driver.get("http://demo.guru99.com/insurance/v1/index.php");
 		driver.manage().window().maximize();
 		
 		return driver;

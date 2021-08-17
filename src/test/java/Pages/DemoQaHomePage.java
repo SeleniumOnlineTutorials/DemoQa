@@ -12,21 +12,18 @@ public class DemoQaHomePage {
 		this.driver=driver;
 		js= (JavascriptExecutor) driver;
 	}
-	
+
 	private By elements = (By.xpath("//h5[text()='Elements']"));
 	private By forms =By.xpath("//h5[text()='Forms']");
-	
+
 	public void clickOnElements() {
 		js.executeScript("arguments[0].scrollIntoView()", driver.findElement(elements));
 		driver.findElement(elements).click();
 	}
-	
+
 	public void clickOnForms(){
 		js.executeScript("arguments[0].scrollIntoView()", driver.findElement(forms));
 		driver.findElement(forms).click();
 	}
-	
-	
-
 
 }

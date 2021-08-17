@@ -1,4 +1,6 @@
 Feature: Multiple testdata sceanrio
+
+@regression
 Scenario Outline: Elements Automation with multiple testdata
   Given User launches DemoQA application
     And User selects Elements in the home page
