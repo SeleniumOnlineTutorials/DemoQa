@@ -10,13 +10,14 @@ public class ConfigFileReader {
 
 
 	public Properties props=null;
-	public String configFilePath="D:\\Vyshnavi\\Cucumber_Framework\\src\test\\resources\\config.properties";
+	public String configFilePath=System.getProperty("user.dir")+"\\src\\test\\resources\\config.properties";
 
-	public void readConfigFile(){
+	public ConfigFileReader(){
 
 		BufferedReader reader;
 
 		try{
+			System.out.println(configFilePath);
 			reader= new BufferedReader(new FileReader(configFilePath));
 			props=new Properties();
 
@@ -55,12 +56,19 @@ public class ConfigFileReader {
 	
 	public String getBrowserType(){
 		
-		String browser= props.getProperty("appUrl");
+		String browser= props.getProperty("browserType");
 		if(browser!=null)
 			return browser;
 		else throw new RuntimeException("browser type is not specified in the config file");
 			
 		
+	}
+	public long getimplicitlyWait(){
+		long implicitlyWait= Integer.parseInt(props.getProperty("implicitlyWait"));
+		if(implicitlyWait!=0)
+			return implicitlyWait;
+		else throw new RuntimeException("implicitlyWait is not specified in the config file");
+			
 	}
 	
 
